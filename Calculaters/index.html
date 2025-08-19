@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculaters</title>
+    <link href="src/output.css" rel="stylesheet">
+
+</head>
+<body class="bg-black min-h-screen text-neutral-200">
+    <!-- salary calculater -->
+    <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Salary Calculator</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Age:</td>
+                                <td class="py-3">
+                                    <input id="ageInput" type="number" placeholder="20" class="w-32 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Years of Working:</td>
+                                <td class="py-3">
+                                    <input id="yearsInput" type="number" placeholder="6" class="w-32 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Job:</td>
+                                <td class="py-3">
+                                    <input id="jobInput" type="text" placeholder="Software Engineer" class="w-full bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Hours per Day:</td>
+                                <td class="py-3">
+                                    <input id="hoursInput" type="number" placeholder="8" class="w-32 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Workdays per Week:</td>
+                                <td class="py-3">
+                                    <input id="daysPerWeekInput" type="number" placeholder="5" class="w-32 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Net Salary ($):</td>
+                                <td class="py-3">
+                                    <input id="netSalaryInput" type="number" placeholder="400" class="w-40 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Calculation Type:</td>
+                                <td class="py-3">
+                                    <select id="calcTypeSelect" class="w-40 bg-neutral-900/80 border border-neutral-700 text-neutral-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                                        <option>hourly</option>
+                                        <option>daily</option>
+                                        <option selected>monthly</option>
+                                        <option>yearly</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="createSalaryOverview()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Create Salary Overview</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <p class="text-lg sm:text-xl font-semibold text-center lg:text-left leading-relaxed">
+                        On your job as <span id="jobLabel" class="text-neutral-100">Software Engineer</span>, this is your salary overview:
+                    </p>
+                    <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-base">
+                        <div class="font-semibold text-neutral-200">Hourly:</div>
+                        <div id="hourlyOut" class="text-neutral-100">$2.08</div>
+                        <div class="font-semibold text-neutral-200">Daily:</div>
+                        <div id="dailyOut" class="text-neutral-100">$16.67</div>
+                        <div class="font-semibold text-neutral-200">Monthly:</div>
+                        <div id="monthlyOut" class="text-neutral-100">$400.00</div>
+                        <div class="font-semibold text-neutral-200">Yearly:</div>
+                        <div id="yearlyOut" class="text-neutral-100">$4800.00</div>
+                    </div>
+
+                    <p class="mt-8 text-center lg:text-left font-semibold text-neutral-200">
+                        For <span id="yearsLabel" class="text-neutral-100">6</span> years working, your total salary is:
+                    </p>
+                    <div class="mt-4 text-4xl sm:text-5xl font-extrabold text-center lg:text-left tracking-tight">
+                        <span id="totalOut">$28800.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="mx-auto w-[95%] h-[1.25px] bg-white border-0 my-10 opacity-80" />
+
+    <!-- tip calculater -->
+    <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Tip Calculator</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Bill Amount ($):</td>
+                                <td class="py-3">
+                                    <input id="billAmountInput" type="number" placeholder="120.00" class="w-40 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Tip Percentage:</td>
+                                <td class="py-3">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <span class="text-neutral-300">%</span>
+                                        <input id="tipPercentInput" type="number" placeholder="10" class="w-24 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Number of People:</td>
+                                <td class="py-3">
+                                    <input id="peopleInput" type="number" placeholder="1" class="w-24 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="calculateTip()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Calculate Tip</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold tracking-tight">Summary</h3>
+                    <div class="mt-4 space-y-4 text-neutral-300">
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Tip per Person</span>
+                            <span id="tipPerPersonOut" class="text-neutral-100">$1.20</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Total Tip</span>
+                            <span id="totalTipOut" class="text-neutral-100">$12.00</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Total per Person</span>
+                            <span id="totalPerPersonOut" class="text-emerald-400">$13.20</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Grand Total</span>
+                            <span id="grandTotalOut" class="text-emerald-400">$132.00</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="mx-auto w-[95%] h-[1.25px] bg-white border-0 my-10 opacity-80" />
+
+    <!-- marks calculater -->
+    <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Marks Calculator</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Maths (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="mathsInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Science (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="scienceInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">English (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="englishInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="calculateMarks()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Calculate Marks</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold tracking-tight">Summary</h3>
+                    <div class="mt-4 space-y-4 text-neutral-300">
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Maths</span>
+                            <span class="text-neutral-100"><span id="mathsMarksOut">0</span> / 100 — <span id="mathsPercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Science</span>
+                            <span class="text-neutral-100"><span id="scienceMarksOut">0</span> / 100 — <span id="sciencePercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>English</span>
+                            <span class="text-neutral-100"><span id="englishMarksOut">0</span> / 100 — <span id="englishPercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Total Marks</span>
+                            <span class="text-emerald-400"><span id="totalMarksOut">0</span> / 300</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Total Percentage</span>
+                            <span id="totalPercentOut" class="text-emerald-400">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="mx-auto w-[95%] h-[1.25px] bg-white border-0 my-10 opacity-80" />
+
+    <!-- interest calculater -->
+    <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Interest Calculator</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Principal Amount ($):</td>
+                                <td class="py-3">
+                                    <input id="principalInput" type="number" placeholder="1000" class="w-40 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Interest Rate:</td>
+                                <td class="py-3">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <span class="text-neutral-300">%</span>
+                                        <input id="rateInput" type="number" placeholder="5" class="w-24 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Time Period:</td>
+                                <td class="py-3">
+                                    <select id="timeTypeSelect" class="w-40 bg-neutral-900/80 border border-neutral-700 text-neutral-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                                        <option selected>Yearly</option>
+                                        <option>Monthly</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Time:</td>
+                                <td class="py-3">
+                                    <input id="timeInput" type="number" placeholder="1" class="w-24 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="calculateInterest()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Calculate Interest</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold tracking-tight">Summary</h3>
+                    <div class="mt-4 space-y-4 text-neutral-300">
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Principal Amount</span>
+                            <span id="principalOut" class="text-neutral-100">$0</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Interest Earned</span>
+                            <span id="interestOut" class="text-neutral-100">$0</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Total Amount</span>
+                            <span id="totalAmountOut" class="text-emerald-400">$0</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Interest Rate</span>
+                            <span id="rateOut" class="text-emerald-400">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="mx-auto w-[95%] h-[1.25px] bg-white border-0 my-10 opacity-80" />
+
+    <!-- profit/loss calculater -->
+    <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Profit/Loss Calculator</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Buy Price ($):</td>
+                                <td class="py-3">
+                                    <input id="buyPriceInput" type="number" placeholder="100" class="w-40 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Sell Price ($):</td>
+                                <td class="py-3">
+                                    <input id="sellPriceInput" type="number" placeholder="120" class="w-40 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="calculateProfitLoss()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Calculate Profit/Loss</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold tracking-tight">Result</h3>
+                    <div class="mt-6 text-center">
+                        <div class="text-2xl font-bold mb-4">
+                            <span id="resultStatus" class="text-neutral-300">Enter values to calculate</span>
+                        </div>
+                        <div class="text-lg">
+                            <span id="resultAmount" class="text-neutral-300">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="src/salary.js"></script>
+    <script src="src/tip.js"></script>
+    <script src="src/marks.js"></script>
+    <script src="src/interest.js"></script>
+    <script src="src/profit_loss.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+.c-transition{
+    transition: 1s;
+    &:hover{
+        perspective: 5px;
+        transform: rotateY(5deg) rotateX(15deg);
+        transform-style: preserve-3d;
+        box-shadow: -6px 10px 42px -38px rgba(255,255,255,1);
+        -webkit-box-shadow: -6px 10px 42px -38px rgba(255,255,255,1);
+        -moz-box-shadow: -6px 10px 42px -38px rgba(255,255,255,1);
+        border-style: var(--tw-border-style);
+        border-width: 5px;
+                border-color: #8080804c;
+    }
+}

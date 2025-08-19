@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="min-h-screen grid place-items-center bg-white text-slate-900">
+    <main class="w-[520px] max-w-[calc(100%_-_2rem)] bg-white border border-slate-200 rounded-xl shadow-lg p-6" role="main">
+        <h1 class="text-2xl font-semibold tracking-tight">Banking System</h1>
+        <p class="text-sm text-slate-600 mt-1">Choose your account type, then select an action.</p>
+
+        <form class="mt-5 space-y-4">
+            <div>
+                <label for="accountType" class="block text-sm font-medium mb-2">Account Type</label>
+                <select id="accountType" name="accountType" required onchange="handleAccountTypeChange()" class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-slate-400 focus:outline-none focus:ring-4 focus:ring-slate-200">
+                    <option value="" selected disabled>Select account type</option>
+                    <option value="savings">Savings Account</option>
+                    <option value="current">Current Account</option>
+                </select>
+            </div>
+
+            <hr class="border-slate-200" aria-hidden="true">
+
+            <div id="actionGroup">
+                <label for="accountAction" class="block text-sm font-medium mb-2">Action</label>
+                <select id="accountAction" name="accountAction" disabled class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-slate-400 focus:outline-none focus:ring-4 focus:ring-slate-200 disabled:bg-slate-50 disabled:text-slate-400 disabled:cursor-not-allowed">
+                    <option value="" selected disabled>Select an action</option>
+                    <option value="withdraw">Withdraw</option>
+                    <option value="deposit">Deposit</option>
+                    <option value="balance">Check Balance</option>
+                </select>
+                <p class="text-xs text-slate-500 mt-2" id="formHint">This will be enabled after you choose an account type.</p>
+            </div>
+        </form>
+    </main>
+</body>
+    <script src="script.js"></script>
+</html>

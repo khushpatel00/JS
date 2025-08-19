@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converters</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="bg-neutral-900 text-white">
+
+  <section class="p-3">
+        
+    <form class="border w-8/12 hover:scale-105 c-transition rounded-2xl p-4 m-5">
+        <h1 class="text-2xl">Area of rectangle</h1>
+      <div class="mt-5 flex">
+            <label class="block mx-2 my-auto text-sm font-medium text-gray-900 dark:text-white">Length:</label>
+            <input type="number" id="rectLength" class="block w-1/2 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <label class="block mx-2 my-auto text-sm font-medium text-gray-900 dark:text-white">Height:</label>
+            <input type="number" id="rectHeight" class="block w-1/2 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+        <p type="submit" class="my-5 bg-neutral-800 cursor-pointer inline-block p-2 px-4 rounded-3xl" onclick="rectArea()">Submit</p><br>
+        <span class="text-2xl">Area: </span> <span id="rectResult"></span>
+    </form>
+    <form class="border w-8/12 hover:scale-105 c-transition rounded-2xl ms-auto me-10 p-4 m-3">
+        <h1 class="text-2xl">Area of Circle</h1>
+      <div class="mt-5 flex">
+            <label class="block mx-2 my-auto text-sm font-medium text-gray-900 dark:text-white">radius:</label>
+            <input type="number" id="circleRadius" class="block w-1/2 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+        <p type="submit" class="my-5 bg-neutral-800 cursor-pointer inline-block p-2 px-4 rounded-3xl" onclick="circleArea()">Submit</p><br>
+        <span class="text-2xl">Area: </span> <span id="circleResult"></span>
+    </form>
+    <form class="border w-8/12 hover:scale-105 c-transition rounded-2xl p-4 m-5">
+        <h1 class="text-2xl">Area of Square</h1>
+      <div class="mt-5 flex">
+            <label class="block mx-2 my-auto text-sm font-medium text-gray-900 dark:text-white">Length:</label>
+            <input type="number" id="squareLength" class="block w-1/2 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+        <p type="submit" class="my-5 bg-neutral-800 cursor-pointer inline-block p-2 px-4 rounded-3xl" onclick="squareArea()">Submit</p><br>
+        <span class="text-2xl">Area: </span> <span id="squareResult"></span>
+    </form>
+    <form class="border w-8/12 hover:scale-105 c-transition rounded-2xl ms-auto me-10 p-4 m-3">
+        <h1 class="text-2xl">Currency Converter</h1>
+      <div class="mt-5 flex">
+            <label class="block mx-2 my-auto text-sm font-medium text-gray-900 dark:text-white">INR:</label>
+            <input type="number" id="INR" class="block w-1/2 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+        <p type="submit" class="my-5 bg-neutral-800 cursor-pointer inline-block p-2 px-4 rounded-3xl" onclick="currencyConverter()">Submit</p><br>
+        <span class="text-2xl">Dollars: </span> <span id="dollarResult"></span>
+    </form>
+  </section>
+
+
+
+
+    <script>
+        function rectArea(){
+            var rectLength = document.getElementById('rectLength').value;
+            var rectHeight = document.getElementById('rectHeight').value;
+            var area = rectHeight * rectLength;
+            
+            document.getElementById('rectResult').innerHTML = area; 
+        }
+
+        function circleArea(){
+            var circleArea = document.getElementById('circleRadius').value;
+            var area = 3.14 * circleArea * circleArea;
+            
+            document.getElementById('circleResult').innerHTML = area; 
+        }
+
+        function squareArea(){
+            var squareLength = document.getElementById('squareLength').value;
+            var area = squareLength * squareLength;
+            
+            document.getElementById('squareResult').innerHTML = area; 
+        }
+
+        function currencyConverter(){
+            var INR = document.getElementById('INR').value;
+            var dollar = INR * 87.7;
+            
+            document.getElementById('dollarResult').innerHTML = dollar; 
+        }
+    </script>
+</body>
+</html>
