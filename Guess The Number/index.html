@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<section class="max-h-[100vh]">
+        <body class="bg-[#222222] text-white">
+        <h1 class="text-5xl mt-5 flex justify-center text-center">Guess The Number</h1>
+        
+        <div class="mt-10 flex relative justify-center items-center text-[#222222] text-5xl">    
+            <p class="bg-white p-5 px-10">?</p>
+            <hr class="absolute text-white w-dvw -z-10">
+        </div>
+
+        <div class="form__group mt-12 field mx-auto">
+            <input type="input" class="form__field" placeholder="Input" required="">
+            <label for="input" class="form__label">Guess</label>
+            <p class="text-center mt-2.5 opacity-50">[ between 1 - 20 ]</p>
+        </div>  
+        
+        <div class="flex justify-center mt-5">
+            <button onclick="handleCheck();" class="border cursor-pointer hover:border-white hover:bg-white hover:text-black p-5 py-2">
+                Check!
+            </button>
+        <!-- </div>
+        <div class="flex justify-center mt-1"> -->
+            <button onclick="handleAgain();" class="border cursor-pointer ms-1 hover:border-white hover:bg-white hover:text-black p-5 py-2">
+                Try Again!
+            </button>
+        </div>
+
+    </section>
+    <script src="src/script.js"></script>
+</body>
+</html>
