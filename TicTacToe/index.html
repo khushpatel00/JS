@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="text-white min-h-screen">
+    <!-- Alert Div -->
+    <div id="alert"
+        class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+        <span id="alert-message"></span>
+    </div>
+
+    <!-- Game Container -->
+    <div class="container mx-auto px-4 pt-8">
+        <!-- Score Display -->
+        <div class="score-display rounded-lg p-8 mb-12 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-blue-400">Game Score</h2>
+            <div class="flex justify-between items-center px-12">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div id="score-o" class="text-4xl font-bold">0</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-red-400 mb-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div id="score-x" class="text-4xl font-bold">0</div>
+                </div>
+            </div>
+        </div>
+        <!-- Current Turn Indicator -->
+        <!-- Game Board -->
+        <div class="flex items-center  justify-center ">
+            <div class="text-center ">
+                <div class="text-2xl text-gray-300">
+                    Current Turn: <span id="current-turn" class="text-blue-400 font-bold">O</span>
+                </div>
+            </div>
+            <table class="border-collapse mx-24">
+                <tr>
+                    <td id="cell-0" class="game-cell" onclick="makeMove(0)"></td>
+                    <td id="cell-1" class="game-cell" onclick="makeMove(1)"></td>
+                    <td id="cell-2" class="game-cell" onclick="makeMove(2)"></td>
+                </tr>
+                <tr>
+                    <td id="cell-3" class="game-cell" onclick="makeMove(3)"></td>
+                    <td id="cell-4" class="game-cell" onclick="makeMove(4)"></td>
+                    <td id="cell-5" class="game-cell" onclick="makeMove(5)"></td>
+                </tr>
+                <tr>
+                    <td id="cell-6" class="game-cell" onclick="makeMove(6)"></td>
+                    <td id="cell-7" class="game-cell" onclick="makeMove(7)"></td>
+                    <td id="cell-8" class="game-cell" onclick="makeMove(8)"></td>
+                </tr>
+            </table>
+            <div class="text-center ">
+                <button onclick="resetGame()"
+                    class="bg-white text-black px-10 py-4 rounded-lg font-bold text-xl hover:bg-gray-200 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Reset Button -->
+
+
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>
