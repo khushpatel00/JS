@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function setHint(message) {
         hintText.innerHTML = message;
     }
- 
+    function generateSecret() {
+        return parseInt(Math.random() * 20);
+    }
     function resetStyles() {
         numberDisplay.textContent = '?';
     }

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+body {
+    background: linear-gradient(180deg, #1e3a8a 0%, #000000 80%);
+    transition: all 0.5s ease;
+    background-attachment: fixed;
+}
+
+.game-cell {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.game-cell:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Vertical lines - middle cells in each row */
+.game-cell:nth-child(2) {
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+/* Horizontal lines - middle row */
+tr:nth-child(2) .game-cell {
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.score-display {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
