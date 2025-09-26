@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Generator</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="bg-black">
+    <div class="min-h-dvh flex flex-col text-white">
+        <header class="p-4 sm:p-6 flex items-center justify-between">
+            <h1 class="text-2xl sm:text-3xl font-semibold">Food Bill Generator</h1>
+        </header>
+
+        <main class="flex-1 px-4 sm:px-6 pb-28 sm:pb-36">
+            <section aria-label="menu" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <article class="bg-zinc-900 rounded-xl p-3 sm:p-4 border border-zinc-800">
+                    <div class="flex items-center gap-3">
+                        <img src="https://img.icons8.com/fluency/48/hamburger.png" alt="Burger" class="w-10 h-10 rounded" />
+                        <div class="flex-1">
+                            <h3 class="text-sm sm:text-base">Burger</h3>
+                            <p class="text-xs text-zinc-400">₹120</p>
+                        </div>
+                        <button data-item="burger" class="add-btn w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition grid place-items-center" title="Add Burger">
+                            <span class="text-lg leading-none">+</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-zinc-900 rounded-xl p-3 sm:p-4 border border-zinc-800">
+                    <div class="flex items-center gap-3">
+                        <img src="https://img.icons8.com/fluency/48/pizza.png" alt="Pizza" class="w-10 h-10 rounded" />
+                        <div class="flex-1">
+                            <h3 class="text-sm sm:text-base">Pizza</h3>
+                            <p class="text-xs text-zinc-400">₹250</p>
+                        </div>
+                        <button data-item="pizza" class="add-btn w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition grid place-items-center" title="Add Pizza">
+                            <span class="text-lg leading-none">+</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-zinc-900 rounded-xl p-3 sm:p-4 border border-zinc-800">
+                    <div class="flex items-center gap-3">
+                        <img src="https://img.icons8.com/fluency/48/wrap.png" alt="Frankie" class="w-10 h-10 rounded" />
+                        <div class="flex-1">
+                            <h3 class="text-sm sm:text-base">Frankie</h3>
+                            <p class="text-xs text-zinc-400">₹150</p>
+                        </div>
+                        <button data-item="frankie" class="add-btn w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition grid place-items-center" title="Add Frankie">
+                            <span class="text-lg leading-none">+</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-zinc-900 rounded-xl p-3 sm:p-4 border border-zinc-800">
+                    <div class="flex items-center gap-3">
+                        <img src="https://img.icons8.com/fluency/48/french-fries.png" alt="Fries" class="w-10 h-10 rounded" />
+                        <div class="flex-1">
+                            <h3 class="text-sm sm:text-base">Fries</h3>
+                            <p class="text-xs text-zinc-400">₹90</p>
+                        </div>
+                        <button data-item="fries" class="add-btn w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition grid place-items-center" title="Add Fries">
+                            <span class="text-lg leading-none">+</span>
+                        </button>
+                    </div>
+                </article>
+            </section>
+
+            <section aria-label="cart" class="mt-6 sm:mt-8">
+                <h2 class="text-lg sm:text-xl font-medium mb-3">Cart</h2>
+                <div id="cartList" class="bg-zinc-950 rounded-xl border border-zinc-800 divide-y p-3 divide-zinc-800"></div>
+            </section>
+        </main>
+
+        <footer class="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur supports-[backdrop-filter]:bg-black/60 border-t border-zinc-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3">
+                <div class="flex-1">
+                    <p class="text-xs text-zinc-400">Total</p>
+                    <p id="totalAmount" class="text-xl sm:text-2xl font-semibold">₹0</p>
+                </div>
+                <button id="clearCart" class="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-sm">Clear</button>
+                <button id="generateBill" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-black font-medium">Generate Bill</button>
+            </div>
+        </footer>
+    </div>
+
+    <div id="billModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 w-full h-screen items-center content-center">
+            <div class="rounded-xl overflow-hidden shadow-2xl">
+                <div id="billContent" class="bg-white text-black p-5"></div>
+                <div class="bg-zinc-100 p-3 flex items-center justify-end gap-2">
+                    <button id="closeBill" class="px-3 py-2 rounded-md bg-zinc-800 text-white">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>

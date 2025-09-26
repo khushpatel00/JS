@@ -3,13 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculater</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="src/output.css">
 </head>
-<body>
-    <section class="text-center">
-        <h1>Calculater</h1>
-
+<body class="bg-black min-h-screen text-neutral-200">
+    <section class="max-w-md mx-auto p-4 sm:p-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Calculator</h1>
+        
+        <!-- Calculator Container -->
+        <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm p-6">
+            <!-- Display Screen -->
+            <div class="mb-6">
+                <div class="bg-black border border-neutral-700 rounded-lg p-4 min-h-[80px] flex items-center justify-end">
+                    <div id="display" class="text-3xl font-mono text-white text-right break-all">0</div>
+                </div>
+            </div>
+            
+            <!-- Calculator Buttons -->
+            <div class="grid grid-cols-4 gap-3">
+                <!-- Row 1 -->
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="CE">CE</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="/">/</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="*">*</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="-">-</button>
+                
+                <!-- Row 2 -->
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="7">7</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="8">8</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="9">9</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors row-span-2" data-value="+">+</button>
+                
+                <!-- Row 3 -->
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="4">4</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="5">5</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="6">6</button>
+                
+                <!-- Row 4 -->
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="1">1</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="2">2</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="3">3</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors row-span-2" data-value="=">=</button>
+                
+                <!-- Row 5 -->
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="0">0</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value="00">00</button>
+                <button class="calc-btn bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-4 px-4 rounded-lg transition-colors" data-value=".">.</button>
+            </div>
+        </div>
     </section>
+
+    <script src="src/script.js"></script>
 </body>
 </html>

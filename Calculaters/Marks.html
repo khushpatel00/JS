@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculater</title>
+    <link href="src/output.css" rel="stylesheet">
+</head>
+<body class="bg-black min-h-screen text-neutral-200">
+
+ <section class="max-w-6xl mx-auto p-4 sm:p-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight mb-6">Marks Calculator</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <table class="w-full text-sm sm:text-base">
+                        <tbody class="divide-y divide-neutral-800">
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Maths (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="mathsInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">Science (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="scienceInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 text-neutral-300">English (out of 100):</td>
+                                <td class="py-3">
+                                    <input id="englishInput" type="number" placeholder="0" class="w-28 text-right bg-neutral-900/80 border border-neutral-700 rounded-md px-3 py-2 text-neutral-200 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4" colspan="2">
+                                    <button type="button" onclick="calculateMarks()" class="w-full rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-medium px-4 py-3">Calculate Marks</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-800 bg-neutral-950/60 shadow-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold tracking-tight">Summary</h3>
+                    <div class="mt-4 space-y-4 text-neutral-300">
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Maths</span>
+                            <span class="text-neutral-100"><span id="mathsMarksOut">0</span> / 100 — <span id="mathsPercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Science</span>
+                            <span class="text-neutral-100"><span id="scienceMarksOut">0</span> / 100 — <span id="sciencePercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>English</span>
+                            <span class="text-neutral-100"><span id="englishMarksOut">0</span> / 100 — <span id="englishPercentOut">0</span>%</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                            <span>Total Marks</span>
+                            <span class="text-emerald-400"><span id="totalMarksOut">0</span> / 300</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Total Percentage</span>
+                            <span id="totalPercentOut" class="text-emerald-400">0%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Grade</span>
+                            <span id="gradeOut" class="text-neutral-300">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="src/marks.js"></script>
+</body>
+</html>
