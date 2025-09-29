@@ -41,5 +41,5 @@ function createSalaryOverview() {
   document.getElementById('yearlyOut').innerHTML = yearly;
   document.getElementById('totalOut').innerHTML = yearly * years;
 }
-
+    
     

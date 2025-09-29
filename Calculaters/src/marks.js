@@ -22,6 +22,31 @@ function calculateMarks() {
 
   document.getElementById('totalMarksOut').innerHTML = total;
   document.getElementById('totalPercentOut').innerHTML = totalPercent + '%';
+
+  // Calculate grade
+  var grade = '';
+  var gradeColor = '';
+  
+  if (totalPercent >= 90) {
+    grade = 'A';
+    gradeColor = 'text-green-400';
+  } else if (totalPercent >= 80) {
+    grade = 'B';
+    gradeColor = 'text-green-400';
+  } else if (totalPercent >= 70) {
+    grade = 'C';
+    gradeColor = 'text-blue-400';
+  } else if (totalPercent >= 60) {
+    grade = 'D';
+    gradeColor = 'text-blue-400';
+  } else {
+    grade = 'F';
+    gradeColor = 'text-red-400';
+  }
+
+  var gradeElement = document.getElementById('gradeOut');
+  gradeElement.innerHTML = grade;
+  gradeElement.className = gradeColor;
 }
 
 
