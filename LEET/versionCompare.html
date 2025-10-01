@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+         var compareVersion = function (version1, version2) {
+
+            version1.split("").filter((val) => {
+                lastVal = val;
+                if (val == '.') { return; }
+                else return val;
+            }).some((v1, i) => {
+                let filteredV2 =version2.split("").filter((val) => {
+                    lastVal = val;
+                    if (val == '.') { return; }
+                    else return val;
+                }).some((v2) => {
+                    if (!(v1 == v2)) {
+                        version1Final = parseInt(version1.split('.').join(""));
+                        version2Final = parseInt(version2.split('.').join(""));
+                        if(version1Final < version2Final) {
+                            result = -1;
+                            return;
+                        }
+                            else if(version1Final > version2Final){
+                                result = 1;
+                                return;
+                            }
+                        }
+                    else {
+                        result = 0;
+                        return;
+                    }
+                })
+                
+            })
+            console.log(result);
+            
+        };
+
+
+
+        compareVersion("1.2", "1.10");
+        console.log('expected = -1');
+        
+        compareVersion("1.0.1","1");
+        console.log('expected = 1');
+        compareVersion("1.0","1.0.0.0");
+        console.log('expected = 0');
+    </script>
+</body>
+
+</html>

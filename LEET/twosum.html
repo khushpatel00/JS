@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addTwoNumbers = function (l1, l2) {
+            let result = [],remainder = 0;
+            for (let i = 0; i<Math.max(l1.length, l2.length); i++) {
+                result[i] = ((l1[i] || 0) + (l2[i] || 0)) + remainder;
+                remainder = 0; // reset after 1 addition
+                if((String(result[i]).split('').length) > 1) {
+                    remainder = result[i]/10;
+                    result[i] = result[i] % 10;
+                };
+            }
+            return result;
+        };
+        
+        console.log(addTwoNumbers([2, 4, 3], [5, 6, 4]));
+        </script>
+</body>
+
+</html>

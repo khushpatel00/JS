@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+/**
+ * @param {integer} init
+ * @return { increment: Function, decrement: Function, reset: Function }
+ */
+var createCounter = function(init) {
+    let original = init;
+    return {
+        increment(){
+            return ++init;
+        },
+        decrement(){
+            return --init;
+        },
+        reset(){
+            init = original;
+            return original;
+        }
+    }
+};
+
+
+  const counter = createCounter(5)
+  counter.increment(); // 6
+  counter.reset(); // 5
+  counter.decrement(); // 4
+ 
+
+    </script>
+</body>
+</html>
