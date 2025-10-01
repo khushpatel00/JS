@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var compareVersion = function (version1, version2) {
+            let final;
+            for(i = Math.max(version1.split('.').length, version2.split('.').length);i>=0 ; i--){
+                if(parseInt(version1.split('.')[i] || 0)>parseInt(version2.split('.')[i] || 0)) final = 'val1';
+                else if(parseInt(version1.split('.')[i] || 0) < parseInt(version2.split('.')[i] || 0)) final = 'val2';
+                else continue;
+            }
+            final == 'val1' ? 1 : final == 'val2' ? 2 : 0 
+        }
+        compareVersion("1.0.1", "1");
+        // compareVersion("1.2", "1.10");
+        // compareVersion("1.0","1.0.0.0");
+
+        
+        
+    </script>
+</body>
+</html>
