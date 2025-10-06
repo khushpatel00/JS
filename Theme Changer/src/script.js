@@ -4,6 +4,4 @@ themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('text-white')
     document.body.classList.toggle('bg-white')
     document.body.classList.toggle('text-black')
-    console.log('Theme changed')
-    
 })
