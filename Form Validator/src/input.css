@@ -1,5 +1,13 @@
 @import "tailwindcss";
 * {
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    transition: 0.3s;
+}
+
+/* Ensure error lines stack under inputs and hide when empty (works in flex rows) */
+.errorMessage {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
 }
