@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
  
     function handleAgain() {
         secretNumber = generateSecret();
+        console.log(secretNumber);
+        
         if (input) input.value = '';
         resetStyles();
         setHint('[ between 1 - 20 ]');

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/all.min.css">
+    <link rel="stylesheet" href="assets/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-black flex justify-center items-center h-screen">
+    <section class="bg-white w-9/12 rounded-xl py-5">
+        <h1 class="JetFonts inline text-2xl ps-8 pe-2">Sign Up</h1> <span class="text-2xl JetFonts font-extralight"> /
+        </span>
+        <h1 class="JetFonts inline text-xl opacity-60 cursor-pointer" onclick="switchMode();">Sign In</h1>
+        <form action="" class="pt-10  relative flex flex-wrap justify-center my-auto items-center">
+            <div class="my-3 relative py-3 flex">
+                <label for="username">Username:</label>
+                <input type="text" class="" autocomplete="username" name="username"> <p id="usernameErr"></p>
+            </div>
+            <div class="my-3 relative py-3 flex">
+                <label for="email" >Email:</label>
+                <input type="text" autocomplete="email" name="email"><p id="emailErr"></p>
+            </div>
+            <div class="my-3 relative py-3 flex">
+                <label for="password" >Password:</label>
+                <input type="password" name="password"><p id="passwordErr"></p>
+            </div>
+            <div class="my-3 relative py-3 flex">
+                <label for="confirmPassword" >Confirm Password:</label>
+                <input type="password" name="confirmPassword"><p id="confirmPasswordErr"></p>
+            </div>
+            <div class="mb-3 relative">
+                <input type="submit" value="Sign Up" class="text-lg px-4 py-2 submit hover:rounded-4xl">
+            </div>
+        </form>
+
+        <form action="" class="pt-10  relative flex flex-wrap justify-center my-auto items-center hidden">
+            <div class="my-3 relative py-3 flex">
+                <label for="username" >Username:</label>
+                <input type="text" autocomplete="username" name="username"><p id="usernameLogErr"></p>
+            </div>
+            <div class="my-3 relative py-3 flex">
+                <label for="password" >Password:</label>
+                <input type="password" name="password"><p id="passwordLogErr"></p>
+            </div>
+            <div class="mb-3 relative ">
+                <input type="submit" value="Sign In" class="text-lg px-4 py-2 submit hover:rounded-4xl">
+            </div>
+        </form>
+
+    </section>
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>

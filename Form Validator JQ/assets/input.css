@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+* {
+    transition: 0.2s;
+}
+
+.JetFonts {
+    font-family: "JetBrains Mono", monospace;
+}
+
+form::after {
+    position: absolute;
+    background-color: black;
+    width: 95%;
+
+    height: 2px;
+    content: '';
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+form{
+  flex-direction: column;
+  /* gap: 1rem; spacing */
+}
+
+input {
+    background: #cdcdcd;
+    border-radius: 15px;
+    transition: 0.5s;
+    /* margin-left: auto;  */
+    height: 30px;
+    width: 40vw;
+}
+
+input:hover {
+    background: #bdbdbd;
+}
+
+input:focus {
+    background: #efefef;
+}
+
+input.submit {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-basis: 100%;
+} 
+
+input.submit:hover {
+    border-radius: 40px;
+}
+
+input:not(.submit) {
+    display: block;
+}
+
+label {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    opacity: 80%;
+
+    font-family: "JetBrains Mono", monospace;
+}
+p{
+    color: red;
+    font-family: "JetBrains Mono", monospace;
+    margin: auto 10px auto;
+    
+} 

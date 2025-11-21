@@ -1,0 +1,23 @@
+<script>
+    var lengthOfLongestSubstring = function (s) {
+        let substr = [], LongestSubstring = 0;
+        console.log(s.split(''));
+        for(let i = 0; i<s.length; i++){
+            // if(s.split('')[i])
+            console.log(i,substr)
+            if(substr.includes(s[i])) {
+                if(substr[i] == s[i]){
+                    substr = [];
+                }
+            };
+            substr.push(s.split('')[i])
+            LongestSubstring = Math.max(LongestSubstring, substr.length)
+        }
+        console.log(substr);
+        
+        return LongestSubstring;
+    };
+    document.write(lengthOfLongestSubstring("bbbbb"));
+    document.write(lengthOfLongestSubstring("dvdf"));
+    // document.write(lengthOfLongestSubstring("pwwkew"));
+</script>
