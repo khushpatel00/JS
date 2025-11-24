@@ -18,7 +18,7 @@ function switchMode() {
 forms[0].addEventListener('submit', (e) => {
     e.preventDefault();
 
-    forms[0].addEventListener('change', () => {
+    forms[0].addEventListener('change', () => { // confirmation on changing inputs
         if (usernames[0].value == '') document.getElementById('usernameErr').innerHTML = 'Please fill in Username'
         else document.getElementById('usernameErr').innerHTML = ''
 
@@ -32,9 +32,23 @@ forms[0].addEventListener('submit', (e) => {
         if (email[0].value == '') document.getElementById('emailErr').innerHTML = 'Please fill in Email'
         else if (!emailRegex.test(email[0].value)) document.getElementById('emailErr').innerHTML = 'Please enter a valid Email Address';
         else document.getElementById('emailErr').innerHTML = ''
-
-
     })
+
+    //default validation - nochange
+
+    if (usernames[0].value == '') document.getElementById('usernameErr').innerHTML = 'Please fill in Username'
+    else document.getElementById('usernameErr').innerHTML = ''
+
+    if (passwords[0].value == '') {
+        document.getElementById('passwordErr').innerHTML = 'Please fill in Password'
+    } else if (passwords[0].value.length < 8 || passwords[0].value.length > 16) document.getElementById('passwordErr').innerHTML = 'Password should be minimum 8 charcaters and maximum 16 characters'
+    else if (passwords[0].value != confirmPassword[0].value) document.getElementById('passwordErr').innerHTML = 'Both Passwords do not match !'
+    else document.getElementById('passwordErr').innerHTML = ''
+
+    console.log(email)
+    if (email[0].value == '') document.getElementById('emailErr').innerHTML = 'Please fill in Email'
+    else if (!emailRegex.test(email[0].value)) document.getElementById('emailErr').innerHTML = 'Please enter a valid Email Address';
+    else document.getElementById('emailErr').innerHTML = ''
 })
 
 forms[1].addEventListener('submit', (e) => {
