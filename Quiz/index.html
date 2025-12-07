@@ -16,31 +16,114 @@
 </head>
 
 
-<body class="bg-black text-white">
+<body class="bg-black text-white overflow-y-hidden">
 
     <section style="font-family: 'poppins', sans-serif;"
-    class="absolute top-1/2 w-10/12 xl:w-2/3 p-10 left-1/2 -translate-1/2 bg-neutral-900 px-10 rounded-2xl ">
-    <div style="font-family: 'JetBrains Mono', monospace;"
-        class="absolute top-0 left-1/2 -translate-1/2 text-2xl bg-neutral-800/80 p-5 px-10 rounded-2xl ">
-        Quiz
-    </div>
-        <span id="queId" class="font-bold text-2xl">Q1.</span>
+        class="absolute top-1/2 w-10/12 xl:w-2/3 p-10 left-1/2 -translate-1/2 bg-neutral-900 px-10 rounded-2xl duration-100">
+        <div style="font-family: 'JetBrains Mono', monospace;"
+            class="absolute top-0 left-1/2 -translate-1/2 text-2xl bg-neutral-800/80 p-5 px-10 rounded-2xl ">
+            Quiz
+        </div>
+        <span id="queId" class="font-bold text-2xl">Q 1.</span>
         <p id="question" class="pt-1 pb-5 text-xl">What is an apple !!?</p>
-        <div id="options">
+        <div id="options" class="mb-5">
             <div class="block py-4 mx-10">
-                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="option1"> <label class="text-lg"> This is an Option </label>
+                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="optionA"> <label
+                    id="optionALabel" for="optionA" class="text-lg"> This is an Option </label>
             </div>
             <div class="block py-4 mx-10">
-                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="option2"> <label class="text-lg"> This is an Option </label>
+                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="optionB"> <label
+                    id="optionBLabel" for="optionB" class="text-lg"> This is an Option </label>
             </div>
             <div class="block py-4 mx-10">
-                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="option3"> <label class="text-lg"> This is an Option </label>
+                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="optionC"> <label
+                    id="optionCLabel" for="optionC" class="text-lg"> This is an Option </label>
             </div>
             <div class="block py-4 mx-10">
-                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="option4"> <label class="text-lg"> This is an Option </label>
+                <input class="hover:scale-125  duration-300" type="radio" name="queOption" id="optionD"> <label
+                    id="optionDLabel" for="optionD" class="text-lg"> This is an Option </label>
             </div>
         </div>
+        <div class="text-center">
+
+            <div class="p-2 px-8 text-lg hover:font-bold hover:px-9 duration-150 cursor-pointer bg-neutral-800 inline rounded-lg"
+                onclick="switchQuestion()">Skip</div>
+            <div class="p-2 px-8 text-lg hover:font-bold hover:px-9 duration-150 cursor-pointer bg-neutral-800 inline rounded-lg"
+                onclick="checkResult();">Check</div>
+        </div>
     </section>
+    <div id="results"
+        class="bg-amber-400 hidden w-10/12 xl:w-2/3 absolute top-5/6 left-1/2  -translate-x-1/2  px-5 py-3 opacity-0 rounded-2xl duration-100 text-center mt-5 text-lg ">
+        this is an result block</div>
+    
+    <script src="src/questions.js"></script>
+    <script>
+        document.querySelectorAll('input[name="queOption"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                const selected = document.querySelector('input[name="queOption"]:checked');
+            })
+        })
+        currentQuizNo = 1;
+        function switchQuestion() {
+            selectedQuestion = questions[Math.floor(Math.random() * questions.length)]
+            document.getElementById('question').innerHTML = selectedQuestion.question;
+            document.getElementById('optionALabel').innerHTML = selectedQuestion.A;
+            document.getElementById('optionBLabel').innerHTML = selectedQuestion.B;
+            document.getElementById('optionCLabel').innerHTML = selectedQuestion.C;
+            document.getElementById('optionDLabel').innerHTML = selectedQuestion.D;
+            document.getElementById('queId').innerHTML = `Q ${currentQuizNo++}.`
+        }
+        switchQuestion();
+
+        function checkResult() {
+            let selectedOption = document.querySelector('input[name="queOption"]:checked');
+            let results = document.querySelector('#results')
+            if (selectedOption == null || selectedOption == undefined) {
+                results.classList.remove('opacity-0', 'hidden', 'bg-emerald-600', 'errorShake');
+                results.classList.add('bg-amber-400');
+                results.innerHTML = 'There\'s no option selected';
+                setTimeout(() => {
+                    results.classList.add('opacity-0');
+                    setTimeout(() => {
+                        results.classList.add('hidden');
+                    }, 1000)
+                }, 2000)
+                return;
+            }
+            // console.log(selectedOption.id.split('').pop());
+            if (selectedOption.id.split('').pop() === selectedQuestion.answer) {
+                results.classList.remove('opacity-0', 'hidden', 'bg-amber-400', 'bg-red-600', 'errorShake');
+                results.classList.add('bg-emerald-600');
+                results.innerHTML = 'Correct Answer !!';
+                setTimeout(() => {
+                    results.classList.add('opacity-0');
+                    setTimeout(() => {
+                        results.classList.add('hidden');
+                        results.innerHTML = 'Correct Answer !!';
+                    }, 1000)
+                }, 2000)
+
+                results.innerHTML += `<img class="absolute top-10/12 min-w-1/4 left-1/2 -translate-1/2" src="src/Confetti explode.gif">`
+
+            }
+            else {
+                results.classList.remove('opacity-0', 'hidden', 'bg-amber-400', 'bg-emerald-600');
+                results.classList.add('bg-red-600', 'errorShake');
+                results.innerHTML = 'Incorrect Answer !!';
+                setTimeout(() => {
+                    results.classList.add('opacity-0');
+                    setTimeout(() => {
+                        results.classList.add('hidden');
+                    }, 100)
+                }, 2000)
+            }
+        }
+
+
+
+    </script>
+
+
 </body>
 
 </html>

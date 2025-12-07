@@ -1,1 +1,33 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+*{
+    transition: all 0.5s;
+}
+
+input, label{
+    cursor: pointer;
+}
+section{
+    transition: 0.3s;
+}
+
+.errorShake {
+    animation: shake 0.3s ease-in-out 1 ;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(25px);
+    }
+    50% {
+        transform: translateX(-25px);
+    }
+    75% {
+        transform: translateX(25px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
