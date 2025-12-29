@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <link rel="shortcut icon" href="src/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="min-h-screen flex flex-col flex-wrap items-center justify-evenly duration-300">
+
+    <section class="duration-300 flex flex-col justify-center items-center gap-8 shadow-2xl p-5 px-8 rounded-2xl">
+        <span class="font-bold text-2xl">Balance : 2000</span>
+
+        <div class="flex dividerline relative">
+            <div class="mx-5 flex flex-col items-center">
+                Total Income
+                <p class="text-emerald-600 font-semibold text-xl">25000</p>
+            </div>
+            <div class="mx-5 flex flex-col items-center">
+                Total Expense
+                <p class="text-red-600 font-semibold text-xl">23000</p>
+            </div>
+        </div>
+    </section>
+    <section class="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row shadow-2xl gap-3 rounded-xl duration-300">
+        <div>
+            <h2 class="text-xl font-semibold text-center my-3">Expense</h2>
+            <table>
+                <thead class="bg-emerald-300 font-semibold">
+                    <td class="px-5 py-2">S No.</td>
+                    <td class="px-5 py-2">Name</td>
+                    <td class="px-5 py-2">Amount</td>
+                    <td class="px-5 py-2">Type</td>
+                    <td class="px-5 py-2">Delete</td>
+                </thead>
+                <tbody id="tabledata">
+                    <tr>
+                        <td class="px-5">1</td>
+                        <td class="px-5">sdf</td>
+                        <td class="px-5">200</td>
+                        <td class="px-5">current</td>
+                        <td class="px-5">delete</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="divideatstart duration-300 lg:relative px-3">
+            <h2 class="text-xl font-semibold">Add new</h2>
+            <div class="flex flex-col gap-5 py-5">
+                <div class="flex items-center justify-center gap-10">
+                    Entry Type:
+                    <select name="entry" id="selectentry" class="bg-neutral-200 px-3 py-2 rounded-lg">
+                        <option value="Expense">Expense</option>
+                        <option value="Income">Income</option>
+                    </select>
+                </div>
+                <div class="flex justify-end">
+                    Name: <input type="text" name="nameinput" id="nameinput" class="ms-3 bg-neutral-100 rounded-lg  px-2 py-1">
+                </div>
+                <div class="flex justify-end">
+                    Amount: <input type="number" name="amountinput" id=amountinput" class="ms-3 bg-neutral-100 rounded-lg  px-2 py-1">
+                </div>
+                <div class="flex justify-center">
+                    <button class="bg-neutral-200 rounded-lg px-5 py-2">Add Expense</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>

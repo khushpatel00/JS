@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+.dividerline::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: black;
+    transform: translateX(-50%);
+}
+
+.divideatstart::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 1px;
+    height: 90%; 
+    background-color: black;
+    transform: translateY(-50%);
+}
+.divideattop{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 1px;
+    height: 90%; 
+    background-color: black;
+    transform: translateY(-50%);
+}
