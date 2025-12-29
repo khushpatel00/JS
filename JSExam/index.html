@@ -12,16 +12,16 @@
 <body class="min-h-screen flex flex-col flex-wrap items-center justify-evenly duration-300">
 
     <section class="duration-300 flex flex-col justify-center items-center gap-8 shadow-2xl p-5 px-8 rounded-2xl">
-        <span class="font-bold text-2xl">Balance : 2000</span>
+        <p class="font-bold text-2xl">Balance : <span id="balance">2000</span></p>
 
         <div class="flex dividerline relative">
             <div class="mx-5 flex flex-col items-center">
                 Total Income
-                <p class="text-emerald-600 font-semibold text-xl">25000</p>
+                <p class="text-emerald-600 font-semibold text-xl" id="totalincome">25000</p>
             </div>
             <div class="mx-5 flex flex-col items-center">
                 Total Expense
-                <p class="text-red-600 font-semibold text-xl">23000</p>
+                <p class="text-red-600 font-semibold text-xl" id="totalexpense">23000</p>
             </div>
         </div>
     </section>
@@ -61,10 +61,12 @@
                     Name: <input type="text" name="nameinput" id="nameinput" class="ms-3 bg-neutral-100 rounded-lg  px-2 py-1">
                 </div>
                 <div class="flex justify-end">
-                    Amount: <input type="number" name="amountinput" id=amountinput" class="ms-3 bg-neutral-100 rounded-lg  px-2 py-1">
+                    Amount: <input type="number" name="amountinput" id="amountinput" class="ms-3 bg-neutral-100 rounded-lg  px-2 py-1">
+                </div>
+                <div class="flex justify-end mx-auto text-red-600" id="errormsg">
                 </div>
                 <div class="flex justify-center">
-                    <button class="bg-neutral-200 rounded-lg px-5 py-2">Add Expense</button>
+                    <button class="bg-neutral-200 rounded-lg px-5 py-2" id="addData">Add Expense</button>
                 </div>
             </div>
         </div>
